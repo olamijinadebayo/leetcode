@@ -16,7 +16,6 @@ void evenOdd(vector<int>*nums){
             swap(vr[next_even],vr[next_odd]);
             next_odd--;
         }
-        
     }
 }
 
