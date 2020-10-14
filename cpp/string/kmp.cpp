@@ -8,7 +8,10 @@
 // if element is has been seen before increment prefix number and set lps[i] to prefix num
 //if element isn't equal to the one before it and length is not zero,len[i]=lps[length-1]
 // else set lps[i] to zero
-
+using namespace std;
+#include <vector>
+#include <iostream> 
+#include <unordered_map> 
 
 void compute_lps(string pat,vector<int>&lps){
     int m=pat.size()-1;
@@ -23,6 +26,7 @@ void compute_lps(string pat,vector<int>&lps){
         {
             len++;
             lps[i]=len;
+            i++;
         }
         else
         {
