@@ -9,17 +9,26 @@ using namespace std;
 // 1. String 
 // 2. Starting index of the string 
 // 3. Ending index of the string. 
+vector<string> result;
 void permute(string a, int l, int r) 
 { 
+    unordered_set<char>seen;
     // Base case 
-    if (l == r) 
-        cout<<a<<endl; 
+    if (l == r){
+        //cout<<a<<endl; 
+        result.emplace_back(a);
+    }    
     else
     { 
         // Permutations made 
         for (int i = l; i <= r; i++) 
         { 
- 
+            if (seen.find(a[i])!= seen.end())
+            {
+                continue;
+            }
+            
+            seen.insert(a[i]);
             // Swapping done 
             swap(a[l], a[i]); 
  
@@ -35,9 +44,14 @@ void permute(string a, int l, int r)
 // Driver Code 
 int main() 
 { 
-    string str = "ABC"; 
+    string str = "AABC"; 
     int n = str.size(); 
     permute(str, 0, n-1); 
+    for (auto &&i : result)
+    {
+        cout<<i<<endl;
+    }
+    
     return 0; 
 } 
 
